@@ -7,7 +7,7 @@ class DockerExecPredictor
 
   def predict(input)
     if input["entrypoint_override"]
-      # effective_command is ignored
+      # CMD is ignored
       [ *resolve_arg0([input["entrypoint_override"]]), *input["cmdline_args"] ]
     elsif input["entrypoint"]
       [ *resolve_arg0(array_or_shell(input["entrypoint"])), *effective_command(input) ]
