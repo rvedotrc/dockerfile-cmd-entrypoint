@@ -8,5 +8,7 @@ This, therefore, was me reverse-engineering the 'exec' logic: trying lots of
 combinations of CMD, ENTRYPOINT, etc; seeing what happened; and then trying to
 assemble a short set of rules which then matches the observed behaviour.
 
+The result is [docker_exec_predictor.rb]
+
 And *those rules* are what should be in the documentation!
 
