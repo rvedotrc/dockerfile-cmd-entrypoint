@@ -6,14 +6,24 @@ require 'json'
 class DockerExecPredictor
 
   def predict(input)
-    if input["entrypoint_override"]
+    if input["entrypoint_override"] == "" && input["cmdline_args"] == []
+      return :no_command_error
+    end
+
+    if input["entrypoint_override"] && input["entrypoint_override"] != ""
       # CMD is ignored
       [ *resolve_arg0([input["entrypoint_override"]]), *input["cmdline_args"] ]
-    elsif input["entrypoint"]
+    elsif input["entrypoint"] && input["entrypoint_override"].nil?
       [ *resolve_arg0(array_or_shell(input["entrypoint"])), *effective_command(input) ]
     else
       command = effective_command(input)
-      if not command.empty?
+      if command.empty?
+        if input["entrypoint"].nil? && input["entrypoint_override"].nil?
+          :switch_to_inspect_mode
+        else
+          :no_command_error
+        end
+      else
         resolve_arg0(command)
       end
     end

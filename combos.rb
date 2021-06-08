@@ -15,7 +15,7 @@ m = Mutex.new
 promises = []
 [ nil, "cmd-string cmd-str1", '["cmd-array", "cmd-arr1"]' ].each do |cmd|
   [ nil, "ep-string ep-str1", '["ep-array", "ep-arr1"]' ].each do |entrypoint|
-    [ nil, "ep-override ep-ov1" ].each do |entrypoint_override|
+    [ nil, "", "ep-override ep-ov1" ].each do |entrypoint_override|
       [ [], ["some", "args"] ].each do |cmdline_args|
 
         promises << Rosarium::Promise.execute do
@@ -76,16 +76,16 @@ promises = []
               err: log_f.fileno,
             )
             Process.wait pid
-            unless $?.success?
-              log_f.rewind
-              raise "run failed: #{log_f.read}"
-            end
-
             log_f.rewind
-            log_f.read
+
+            unless $?.success?
+              "run failed: #{log_f.read}"
+            else
+              log_f.read
+            end
           end
 
-          {
+          r = {
             input: {
               cmd: cmd,
               entrypoint: entrypoint,
@@ -94,6 +94,8 @@ promises = []
             },
             output: log_output,
           }
+          p r
+          r
 
         end # promise execute
 
