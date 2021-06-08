@@ -12,3 +12,15 @@ The result is [in this repository](https://github.com/rvedotrc/dockerfile-cmd-en
 
 And *those rules* are what should be in the documentation!
 
+## Running the tests
+
+```sh
+bundle install
+
+# Try all the different combinations and see what Docker actually does.
+# This bit can take a while...
+bundle exec ruby combos.rb
+
+# Compare to the predictor:
+bundle exec ruby reverse-engineer-rules.rb < o.json
+```
