@@ -106,8 +106,3 @@ all = Rosarium::Promise.all(promises).value!
 File.open('o.json', 'w') do |f|
   f.puts JSON.pretty_generate(all)
 end
-
-# Udtræksbruser 46857000
-# Kontraventil t/ termostatbatterier 08565000
-# Stråleregulator 13997000
-
