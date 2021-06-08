@@ -12,6 +12,10 @@ The result is [in this repository](https://github.com/rvedotrc/dockerfile-cmd-en
 
 And *those rules* are what should be in the documentation!
 
+## Version
+
+Last tested with `Docker version 20.10.3, build 48d30b5`.
+
 ## Running the tests
 
 ```sh
