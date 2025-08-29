@@ -7,24 +7,20 @@ class DockerExecPredictor
 
   def predict(input)
     if input["entrypoint_override"] == "" && input["cmdline_args"] == []
-      return :no_command_error
+      return ["no_command_specified"]
     end
 
     if input["entrypoint_override"] && input["entrypoint_override"] != ""
       # CMD is ignored
-      [ *resolve_arg0([input["entrypoint_override"]]), *input["cmdline_args"] ]
+      ["ok", [ resolve(input["entrypoint_override"]), *input["cmdline_args"] ]]
     elsif input["entrypoint"] && input["entrypoint_override"].nil?
-      [ *resolve_arg0(array_or_shell(input["entrypoint"])), *effective_command(input) ]
+      ["ok", [ *resolve_arg0(array_or_shell(input["entrypoint"])), *effective_command(input) ]]
     else
       command = effective_command(input)
       if command.empty?
-        if input["entrypoint"].nil? && input["entrypoint_override"].nil?
-          :switch_to_inspect_mode
-        else
-          :no_command_error
-        end
+        ["no_command_specified"]
       else
-        resolve_arg0(command)
+        ["ok", resolve_arg0(command)]
       end
     end
   end
@@ -52,6 +48,8 @@ class DockerExecPredictor
   end
 
   def resolve_arg0(arr)
+    return [] if arr.empty?
+
     [ resolve(arr[0]), *arr[1..-1] ]
   end
 

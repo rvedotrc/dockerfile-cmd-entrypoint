@@ -1,4 +1,0 @@
-#!/usr/local/bin/ruby
-
-require 'json'
-puts JSON.generate([ $0, *ARGV ])

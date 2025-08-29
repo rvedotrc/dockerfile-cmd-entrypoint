@@ -5,32 +5,15 @@ require 'json'
 require_relative 'docker_exec_predictor'
 
 data = JSON.parse($stdin.read).map do |line|
-  line["output"].chomp!
-  predicted_output = DockerExecPredictor.new.predict(line["input"])
+  actual = line["output"]
+  predicted = DockerExecPredictor.new.predict(line["input"])
 
-  output_json = begin
-                  JSON.parse(line["output"])
-                rescue
-                  nil
-                end
-
-  ok = case predicted_output
-       when :no_command_error
-         line["output"].include?("No command specified")
-       when :switch_to_inspect_mode
-         line["output"].include?("Switch to inspect mode")
-       else
-         if output_json
-           predicted_output == output_json
-         else
-           false
-         end
-       end
+  ok = predicted == actual
 
   if !ok
     puts "case #{line["input"].inspect}"
-    puts "  predicted #{predicted_output.inspect}"
-    puts "  actual    #{line["output"].inspect}"
+    puts "  predicted #{JSON.generate(predicted)}"
+    puts "  actual    #{JSON.generate(actual)}"
     puts ""
   end
   line["ok"] = ok
@@ -38,6 +21,7 @@ data = JSON.parse($stdin.read).map do |line|
 end
 
 puts "#{data.count {|line| line["ok"]}} OK"
+puts "#{data.count {|line| !line["ok"]}} FAILED"
 
 File.open('reverse-engineer-rules.json', 'w') do |f|
   f.puts JSON.pretty_generate(data)

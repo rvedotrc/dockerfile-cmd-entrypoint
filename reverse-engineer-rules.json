@@ -1,0 +1,990 @@
+[
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": null,
+      "entrypoint_override": null,
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "no_command_specified"
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": null,
+      "entrypoint_override": null,
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": null,
+      "entrypoint_override": "",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "no_command_specified"
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": null,
+      "entrypoint_override": "",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": null,
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": null,
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": null,
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/bin/sh",
+        "-c",
+        "ep-string ep-str1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": null,
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/bin/sh",
+        "-c",
+        "ep-string ep-str1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "no_command_specified"
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": null,
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-array",
+        "ep-arr1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": null,
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-array",
+        "ep-arr1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "no_command_specified"
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": null,
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": null,
+      "entrypoint_override": null,
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/bin/sh",
+        "-c",
+        "cmd-string cmd-str1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": null,
+      "entrypoint_override": null,
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": null,
+      "entrypoint_override": "",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "no_command_specified"
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": null,
+      "entrypoint_override": "",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": null,
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": null,
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": null,
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/bin/sh",
+        "-c",
+        "ep-string ep-str1",
+        "/bin/sh",
+        "-c",
+        "cmd-string cmd-str1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": null,
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/bin/sh",
+        "-c",
+        "ep-string ep-str1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "no_command_specified"
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": null,
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-array",
+        "ep-arr1",
+        "/bin/sh",
+        "-c",
+        "cmd-string cmd-str1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": null,
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-array",
+        "ep-arr1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "no_command_specified"
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "cmd-string cmd-str1",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": null,
+      "entrypoint_override": null,
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/cmd-array",
+        "cmd-arr1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": null,
+      "entrypoint_override": null,
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": null,
+      "entrypoint_override": "",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "no_command_specified"
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": null,
+      "entrypoint_override": "",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": null,
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": null,
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": null,
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/bin/sh",
+        "-c",
+        "ep-string ep-str1",
+        "cmd-array",
+        "cmd-arr1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": null,
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/bin/sh",
+        "-c",
+        "ep-string ep-str1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "no_command_specified"
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "ep-string ep-str1",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": null,
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-array",
+        "ep-arr1",
+        "cmd-array",
+        "cmd-arr1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": null,
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-array",
+        "ep-arr1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "no_command_specified"
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/some",
+        "args"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1"
+      ]
+    ],
+    "ok": true
+  },
+  {
+    "input": {
+      "cmd": "[\"cmd-array\", \"cmd-arr1\"]",
+      "entrypoint": "[\"ep-array\", \"ep-arr1\"]",
+      "entrypoint_override": "ep-override ep-ov1",
+      "cmdline_args": [
+        "some",
+        "args"
+      ]
+    },
+    "output": [
+      "ok",
+      [
+        "/usr/bin/ep-override ep-ov1",
+        "some",
+        "args"
+      ]
+    ],
+    "ok": true
+  }
+]
