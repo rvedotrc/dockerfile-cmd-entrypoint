@@ -6,29 +6,39 @@ require 'json'
 class DockerExecPredictor
 
   def predict(input)
-    if input["entrypoint_override"] == "" && input["cmdline_args"] == []
+    entrypoint_from_image = array_or_shell(input.fetch("entrypoint"))
+    entrypoint_override = input.fetch("entrypoint_override")
+    cmd_from_image = array_or_shell(input.fetch("cmd"))
+    cmdline_args = input.fetch("cmdline_args")
+
+    ec = effective_command(cmd_from_image, cmdline_args)
+
+    if non_empty_string?(entrypoint_override)
+      # entrypoint_override and cmdline_args are used;
+      # ENTRYPOINT and CMD are ignored
+      return ["ok", resolve_arg0([ entrypoint_override, *cmdline_args ])]
+    end
+
+    if entrypoint_override.nil? && !entrypoint_from_image.nil?
+      # Use the entry point from the image, plus either the cmdline args or CMD
+      return ["ok", resolve_arg0([ *entrypoint_from_image, *ec ])]
+    end
+
+    if (entrypoint_override == "" && cmdline_args == []) || ec.empty?
       return ["no_command_specified"]
     end
 
-    if input["entrypoint_override"] && input["entrypoint_override"] != ""
-      # CMD is ignored
-      ["ok", [ resolve(input["entrypoint_override"]), *input["cmdline_args"] ]]
-    elsif input["entrypoint"] && input["entrypoint_override"].nil?
-      ["ok", [ *resolve_arg0(array_or_shell(input["entrypoint"])), *effective_command(input) ]]
-    else
-      command = effective_command(input)
-      if command.empty?
-        ["no_command_specified"]
-      else
-        ["ok", resolve_arg0(command)]
-      end
-    end
+    ["ok", resolve_arg0(ec)]
   end
 
   private
 
+  def non_empty_string?(s)
+    !s.nil? && !s.empty?
+  end
+
   def array_or_shell(s)
-    s or raise
+    return nil if s.nil?
 
     if s.start_with? '['
       JSON.parse s
@@ -53,11 +63,11 @@ class DockerExecPredictor
     [ resolve(arr[0]), *arr[1..-1] ]
   end
 
-  def effective_command(input)
-    if not input["cmdline_args"].empty?
-      input["cmdline_args"]
-    elsif input["cmd"]
-      array_or_shell input["cmd"]
+  def effective_command(cmd_from_image, cmdline_args)
+    if !cmdline_args.empty?
+      cmdline_args
+    elsif cmd_from_image
+      cmd_from_image
     else
       []
     end
