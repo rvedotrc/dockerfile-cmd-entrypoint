@@ -6,7 +6,8 @@ require_relative 'docker_exec_predictor'
 
 data = JSON.parse($stdin.read).map do |line|
   actual = line["output"]
-  predicted = DockerExecPredictor.new.predict(line["input"])
+  params = DockerParams.from_input(line["input"])
+  predicted = DockerExecPredictor.new(params).predict
 
   ok = predicted == actual
 
